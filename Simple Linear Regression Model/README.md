@@ -1,7 +1,5 @@
-# Linear Regression 
 
-
-## Linear regression: 
+## Linear Regression: 
          Is used for finding linear relationship between target  and one or more predictors.
 
 # Simple Linear Regression
@@ -35,14 +33,15 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
          6. Use Non-redundant independent Variables in the analysis to find the best fitting model
          7. Use the best fitting model to make predictions about the dependent variables
          
- # Note: Adding more independent variables (Features) leads to the overfitting problem.
+ # Note: 
+ 	Adding more independent variables (Features) leads to the overfitting problem.
  
  # Relationship between the Independent and Dependent Variables:
  
  
                                              x1-------------------------------->
  
-   Independent Varibales:                                 x2  ------------ >           Y  Dependent Varibales
+   Independent Varibales                                 x2  ------------ >                              Y  Dependent Varibales
                                     
                                              x3-------------------------------- >     
                                              
@@ -50,13 +49,14 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
                                              
  # Images/Figure 1
    
- # Note: Independent Variables which does not has any correlation with the dependent variable,should not consider to the fitting     model.
+ # Note:
+ 	Independent Variables which does not has any correlation with the dependent variable,should not consider to the fitting     model.
  
- # relationship amoung the Independent's  Variables:
+ # Relationship amoung the Independent's  Variables:
   
                                              x1----------> x2
  
-   Independent Varibales:                    x2  --------> x3
+   Independent Varibales:                                 x2  --------> x3
                                     
                                              x3----------> x1
                                              
@@ -64,8 +64,9 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
                                              
 # Images/Figure 2                                    
          
- # Note: Any Independent variable with high corellation with other variable is a  Multicolinearity 
-#        Multicolinearity variables should not used in the model, only one variable should be used.
+ # Note: 
+ 	Any Independent variable with high corellation with other variable is a  Multicolinearity 
+	Multicolinearity variables should not used in the model, only one variable should be used.
 
 
                   
