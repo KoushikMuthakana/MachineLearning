@@ -1,6 +1,7 @@
 
 ## Linear Regression: 
-         Is used for finding linear relationship between target  and one or more predictors.
+         Linear Regression is a Linear Model. Which means, we will establish a linear relationship between the input variables(X) and single output variable(Y). When the input(X) is a single variable this model is called Simple Linear Regression and when there are mutiple input variables(X), it is called Multiple Linear Regression.
+	 
 
 # Simple Linear Regression
 
@@ -38,14 +39,15 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
  
  # Relationship between the Independent and Dependent Variables:
  
- 
-                                             x1-------------------------------->
- 
-   Independent Varibales                                 x2  ------------ >                              Y  Dependent Varibales
+ 	Independent Varibales :				Dependent Varibales
+            
+		x1------------------>
+ 		
+		x2------------------>                              Y  
                                     
-                                             x3-------------------------------- >     
+		x3----------------- >     
                                              
-                                             3 Relationships to analyze
+                                        3 Relationships to analyze
                                              
  # Images/Figure 1
    
@@ -54,11 +56,13 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
  
  # Relationship amoung the Independent's  Variables:
   
-                                             x1----------> x2
+  		Independent Varibales:                   
+                    
+		x1----------> x2
  
-   Independent Varibales:                                 x2  --------> x3
-                                    
-                                             x3----------> x1
+		x2  --------> x3
+                    
+		x3----------> x1
                                              
                                              3 Relationships to analyze
                                              
