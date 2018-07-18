@@ -1,6 +1,8 @@
 
 ## Linear Regression: 
-         Linear Regression is a Linear Model. Which means, we will establish a linear relationship between the input variables(X) and single output variable(Y). When the input(X) is a single variable this model is called Simple Linear Regression and when there are mutiple input variables(X), it is called Multiple Linear Regression.
+         Linear Regression is a Linear Model. Which means, we will establish a linear relationship between the input variables(X)
+         and single output variable(Y). When the input(X) is a single variable this model is called Simple Linear Regression and
+         when there are mutiple input variables(X), it is called Multiple Linear Regression.
 	 
 
 # Simple Linear Regression
@@ -52,7 +54,8 @@ Eg: Relationship between rash driving and number of road accidents by a driver i
  # Images/Figure 1
    
  # Note:
- 	Independent Variables which does not has any correlation with the dependent variable,should not consider to the fitting     model.
+ 	Independent Variables which does not has any correlation with the dependent variable,should not 
+        consider to the fitting model.
  
  # Relationship amoung the Independent's  Variables:
   
