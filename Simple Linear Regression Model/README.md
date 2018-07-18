@@ -1,4 +1,4 @@
-Linear Regression 
+# Linear Regression 
 
 
 Linear regression is used for finding linear relationship between target  and one or more predictors.
