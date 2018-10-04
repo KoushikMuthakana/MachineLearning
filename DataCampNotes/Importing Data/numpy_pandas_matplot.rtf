@@ -1,0 +1,245 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fnil\fcharset1 Segoe UI Symbol;}{\f2\fnil\fprq2\fcharset2 Wingdings;}{\f3\fnil\fcharset0 Calibri;}{\f4\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue0;\red235\green244\blue247;\red255\green255\blue255;\red119\green119\blue119;}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\widctlpar\sa160\sl252\slmult1\qc\b\f0\fs22 Numpy \endash Datacamp\par
+\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b0\f1\u9679?\f0  Numeric Python \par
+\f1\u9679?\f0  Alternative to Python List: NumPy Array \par
+\f1\u9679?\f0  Calculations over entire arrays\par
+\f1\u9679?\f0  Easy and Fast \par
+\b Methods: \b0 Import numpy as np\b\par
+
+\pard\widctlpar\fi720\sa160\sl252\slmult1\qj\b0 np.corrcoef(df[:,1],df[:,2])\par
+np.mean(np_city[:,0])\par
+np.median(np_city[:,0])\par
+np.std(np_city[:,0])\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b Sort(): sort(a, axis=-1, kind='quicksort', order=None)\par
+\b0 dtype = [('name', 'S10'), ('height', float), ('age', int)]\par
+values = [('Arthur', 1.8, 41), ('Lancelot', 1.9, 38), ('Galahad', 1.7, 38)]\par
+a = np.array(values, dtype=dtype)       # create a structured array\par
+np.sort(a, order='height')\par
+\b Sort by age, then height if ages are equal:\par
+\b0 np.sort(a, order=['age', 'height'])               # doctest: +SKIP\par
+array([('Galahad', 1.7, 38), ('Lancelot', 1.8999999999999999, 38), ('Arthur', 1.8, 41)],\par
+          dtype=[('name', '|S10'), ('height', '<f8'), ('age', '<i4')])\par
+\b column_stack() :\b0  \b column_stack(tup)\par
+\b0 Stack 1-D arrays as columns into a 2-D array.\par
+Take a sequence of 1-D arrays and stack them as columns to make a single 2-D array. 2-D arrays are stacked as-is, just like with `hstack`.  1-D arrays are turned into 2-D columns first.\par
+  Examples\par
+   a = np.array((1,2,3))\par
+   b = np.array((2,3,4))\par
+np.column_stack((a,b))\f2\'e8\f0   array([[1, 2],\par
+         \tab\tab\tab\tab   [2, 3],\par
+       \tab\tab\tab\tab     [3, 4]])\par
+\f2\'e8\b\f0 (np.round(np.random.normal(1.75, 0.20, 5), 3))\par
+
+\pard\widctlpar\fi720\sa160\sl252\slmult1\qj\b0 array([1.635, 1.964, 2.049, 1.474, 1.773])\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\par
+\b Stack():\b0 Join a sequence of arrays along a new axis.\par
+
+\pard\widctlpar\li225\sa160\sl252\slmult1\qj The `axis` parameter specifies the index of the new axis in the dimensions of the result. For example, if axis=0`` it will be the first dimension and if ``axis=-1`` it will be the last dimension.\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b Concatenate()\b0  : Join a sequence of arrays along an existing axis.\par
+\b split ():\b0  Split array into a list of multiple sub-arrays of equal size.\par
+\b block ():\b0  Assemble arrays from blocks.\par
+\par
+\b **TO iterate all items in 2D array using for loop:\par
+\b0\tab For val in np.nditer(array([[],[]])):\par
+\tab\tab Print(val)\par
+\par
+\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qc\b\fs28 Pandas\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b0\fs24 TO add columns of one columns length use apply()\par
+i.e\par
+df[\lquote new_column\rquote ]=df[\lquote old_column\rquote ].apply(len)\par
+\par
+\par
+\par
+\fs22\par
+\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qc\b\fs28 Matplotlib\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\fs22 Data Visualization \par
+\b0\f1\u9679?\f0  Very important in Data Analysis\par
+ \f1\u9679?\f0  Explore data \par
+\f1\u9679?\f0  Report insights\par
+\par
+\par
+\b Methods:\par
+\b0 Plot():\tab\tab\tab\tab\tab\tab\tab Scatter()\par
+\par
+\b\par
+\par
+\par
+\par
+\par
+\par
+\par
+**Change the axis scale to log:\par
+\b0\f3\lang9{\pict{\*\picprop{\sp{\sn wzDescription}{\sv Image}}{\sp{\sn posv}{\sv 1}}
+}\pngblip\picw13309\pich6937\picwgoal7545\pichgoal3933 
+89504e470d0a1a0a0000000d49484452000002d90000017c080200000095163009000000017352
+474200aece1ce90000000467414d410000b18f0bfc6105000000097048597300000ec300000ec3
+01c76fa8640000033d49444154785eedc13101000000c2a0f54f6d0d0f20000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000b85703b0840001760588bd0000000049454e44ae426082
+}\f0\lang1033\par
+\par
+\b\par
+\par
+\b0\f3\lang9 }\b\f0\lang1033\par
+\par
+\par
+\par
+\b0\f3\lang9{\pict{\*\picprop{\sp{\sn wzDescription}{\sv Image}}{\sp{\sn posv}{\sv 1}}
+}\pngblip\picw10497\pich6786\picwgoal5951\pichgoal3847 
+89504e470d0a1a0a0000000d49484452000001de000001350802000000c67f16d5000000017352
+474200aece1ce90000000467414d410000b18f0bfc6105000000097048597300000ec300000ec3
+01c76fa864000001c549444154785eedc1010d000000c2a0f74f6d0e3720000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000785103c4710001499d
+ea8a0000000049454e44ae426082
+}\b\f0\fs24\lang1033 Histogram:\par
+\b0\f1\fs22\u9679?\f0  Explore dataset\par
+ \f1\u9679?\f0  Get idea about distribution\par
+\f3\lang9 }\b\f0\lang1033\par
+\par
+Import matplotplot.pyplot as plt\par
+
+\pard\widctlpar\fi720\sa160\sl252\slmult1\qj\b0 plt.hist([1,2,3,4,5,56],bins=15,orientation=\rquote\rquote vertical/horizontal) \par
+orientation: Define the position of plot\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\par
+\b Adding text in plot:\par
+\b0  {\pict{\*\picprop{\sp{\sn wzDescription}{\sv Image}}{\sp{\sn posv}{\sv 1}}
+}\pngblip\picw16465\pich9620\picwgoal9334\pichgoal5454 
+89504e470d0a1a0a0000000d494844520000027b000001730802000000c9ed5830000000017352
+474200aece1ce90000000467414d410000b18f0bfc6105000000097048597300000ec300000ec3
+01c76fa864000002c449444154785eedc1010d000000c2a0f74f6d0f0704000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000070a406cacc000193101de00000000049454e44ae426082
+}\par
+\par
+\par
+\b\par
+Iterators and Iterables:\par
+Iterables: \b0 Which are associated with next() method.\par
+\tab     Iter() method is used to create iterator object, by which a next() can be used.\par
+\tab Eg: list,string,dictonories,file connections\par
+\b Iterators:\par
+\b0\tab Produces the next values by using next()\par
+\tab Eg: \par
+\tab L=[1,2,4]\par
+\tab Print(next(L))\f2\'e8\f0 Throws error\par
+\tab L=iter(L)\par
+\tab Print(next(L))\f2\'e8\f0  1, Print(next(L))\f2\'e8\f0  2, Print(next(L))\f2\'e8\f0  4, Print(next(L))\f2\'e8\f0  Throws error as no values is there to print\par
+\b TO Print all values in iterator object, use *\par
+\tab EG: s=\rquote koushik\rquote\par
+\tab\tab S=iter(s)\par
+\tab\tab Print(*S)\f2\'e8\f0  k o u s h I k\par
+Note\f2\'e8\f0  \b0 Iterator does not create a list , instead it creates a object which goes till the last value even though the iterator range crosses the computer memory range\par
+\tab Eg: range(10**100) is very large size , in creating list to this range throws memory error but if we create a iter() , it will reach to the end \par
+\b List Comprehension:\par
+\cf1\highlight2\b0\fs20 [\highlight3\fs22 [\i output expression\i0 ]\~\highlight2\fs20 for\highlight3\fs22\~\i iterator variable\i0\~\highlight2\fs20 in\highlight3\fs22\~\i iterable\highlight2\i0\fs20 ]\highlight0\fs18\par
+\cf4  \cf1 [[i*j \b for\b0  j in range(1,11)] \b for\b0  i in range(7,9)]\par
+\b Output\b0 :\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\widctlpar\fi-360\li720\sa160\sl252\slmult1\qj\fs22 7*1=\par
+{\pntext\f4\'B7\tab}8*1=\par
+{\pntext\f4\'B7\tab}7*2=\par
+{\pntext\f4\'B7\tab}8*2=\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b It is same as\par
+\b0 for j in range(1,11):\par
+
+\pard\widctlpar\fi720\sa160\sl252\slmult1\qj\tab for i in range(7,9):\par
+\tab\tab i*j\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b Generators:\par
+\tab\b0 Generators are used when we want to itterate very large range. In normal for loop we can\rquote t iterate very large range,so we use generators.\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\widctlpar\fi-360\li720\sa160\sl252\slmult1\qj Generators wont store the values at the time of creation. Just an object is created and calls the each value by calling next() method\par
+
+\pard\widctlpar\li360\sa160\sl252\slmult1\qj\b Syntax:\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\fs24\tab Genrator comprehesion:gen= ( i for i in range(1000000000000))\par
+\tab Genrator function:  def demo():\par
+\tab\tab\tab\tab\tab for i in range(100000000):\par
+\tab\tab\tab\tab\tab\tab yield i \par
+\tab To call the value: \b0 next(gen) and \par
+
+\pard\widctlpar\fi720\li720\sa160\sl252\slmult1\qj Dem=demo()\par
+
+\pard\widctlpar\fi720\li1440\sa160\sl252\slmult1\qj next(Dem)\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\b\par
+Reading very very large files:\par
+\b0\tab Reading very very large files causes the memory exception, to over come this problem, \par
+
+\pard\widctlpar\fi720\sa160\sl252\slmult1\qj Use chunks \fs22 concepts to read very cery large files.\par
+In pandas.read_csv(), we have parameter: \b chunksize \b0 which\b  \b0 defines the size of chunk\par
+
+\pard{\pntext\f4\'B7\tab}{\*\pn\pnlvlblt\pnf4\pnindent0{\pntxtb\'B7}}\widctlpar\fi-360\li1080\sa160\sl252\slmult1\qj Chunk means dividing the large file into pieces and iterating on each piece \par
+{\pntext\f4\'B7\tab}Large chunk size helps in reducing the oversize problems\par
+{\pntext\f4\'B7\tab}In pandas.read_csv(file,chucksize=1000),each chuck defines the each data frame.\par
+
+\pard\widctlpar\li720\sa160\sl252\slmult1\qj Note\f2\'e8\f0  To write csv file from chuck use \b mode=\rquote a\rquote  \b0 to append tall the chunks, if not only last chuck data will be created\par
+\b\par
+
+\pard\widctlpar\li1080\sa160\sl252\slmult1\qj\b0\par
+
+\pard\widctlpar\sa160\sl252\slmult1\qj\cf0\tab\par
+
+\pard\sa200\sl276\slmult1\f3\lang9\par
+}
+ 

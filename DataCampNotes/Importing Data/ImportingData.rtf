@@ -1,0 +1,312 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\fnil\fprq2\fcharset2 Wingdings;}{\f2\fswiss\fprq2\fcharset0 Calibri;}{\f3\fnil\fcharset1 Segoe UI Symbol;}{\f4\fnil\fcharset0 Segoe UI Symbol;}{\f5\fnil Segoe UI Symbol;}{\f6\fnil\fcharset0 Calibri;}{\f7\fnil\fcharset2 Symbol;}}
+{\*\listtable 
+{\list\listhybrid
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'01.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc4\leveljc0\levelstartat1{\leveltext\'02\'02.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}\listid1 }
+{\list\listhybrid
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}\listid2 }
+{\list\listhybrid
+{\listlevel\levelnfc0\leveljc0\levelstartat1{\leveltext\'02\'00.;}{\levelnumbers\'01;}\jclisttab\tx0}
+{\listlevel\levelnfc23\leveljc0\levelstartat1{\leveltext\'01\'B7;}{\levelnumbers;}\f7\jclisttab\tx0}\listid3 }}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\widctlpar\sl240\slmult1\qc\b\f0\fs24 Importing Data \par
+
+\pard\widctlpar\sl240\slmult1 Different Types of files:\par
+
+\pard{\pntext\f7\'B7\tab}{\*\pn\pnlvlblt\pnf7\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sl240\slmult1\b0 Flat files\f1\'e8\f0  Normal text files, csv files\par
+{\pntext\f7\'B7\tab}Other sources\f1\'e8\f0 Excel files\par
+{\pntext\f7\'B7\tab}DataBases\f1\'e8\f0 MySql\par
+
+\pard\widctlpar\sl240\slmult1\b Flat Files:\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls1\fi-360\li720\sl240\slmult1\b0 Text Files:   file=open(\lquote file_name\rquote ,\rquote r/w\rquote )\b\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls1\ilvl3\fi-360\li2880\sl240\slmult1\b0 File.\b read\b0 ()\f1\'e8\f0 returns \b text \par
+{\listtext\f0 1\tab}\b0 File.\b close\b0 ()\f1\'e8\f0 closes the file access\b\par
+{\listtext\f0 2\tab}\b0 File.closed\f1\'e8\f0 returns \b bool\par
+
+\pard\widctlpar\fi720\li1440\sl240\slmult1 Or\par
+\b0 with open('moby_dick.txt') as file:\par
+    print(file.readline())\par
+    print(file.readline())\par
+    print(file.readline()) \par
+
+\pard\widctlpar\sl240\slmult1\par
+\b Importing Data using Numpy: \par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls2\fi-360\li720\sl240\slmult1\b0 Numpy package is mainly used for storing  \b numerical \b0 data\b\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls2\ilvl1\fi-360\li1440\sl240\slmult1\b0 Two main Methods to read data\b\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls2\ilvl2\fi-360\li2160\sl240\slmult1\b0 loadtext()\f1\'e8\f0  used for \b single \b0 data type\b\par
+{\listtext\f0 1\tab}\b0 genfromtext()\f1\'e8\f0 used for \b mixed \b0 data type\b\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls2\ilvl1\fi-360\li1440\sl240\slmult1 loadtext():\par
+
+\pard\widctlpar\li2160\sl240\slmult1 import numpy as np\par
+\b0\f2\fs22 data = np.loadtxt(\b filename\b0 , \b delimiter\b0 =',')\par
+
+\pard\widctlpar\li720\sl240\slmult1\b\f0\fs24\tab\tab delimiter \f1\'e8\f0 default is white Space, so need to specify either \lquote  ,\rquote  \tab\tab\tab\lquote  \\t' \par
+\tab\par
+
+\pard\widctlpar\fi720\li1440\sl240\slmult1\b0\f2\fs22 data = np.loadtxt(filename, delimiter=',', \b skiprows\b0 =1)\b\f0\fs24\par
+
+\pard\widctlpar\li720\sl240\slmult1\tab\tab\f2\fs22 skiprows\f1\'e8\f2 To Skip the first column\par
+
+\pard\widctlpar\fi720\li1440\sl240\slmult1\b0\par
+data = np.loadtxt(filename, delimiter=',', skiprows=1, \b usecols\b0 =[0, 2])\par
+\b usecols\f1\'e8\f2  use only specific rows and columns\par
+\par
+\b0 :data = np.loadtxt(filename, delimiter=',', \b dtype\b0 =str)\par
+\b dtype\f1\'e8\f2  converts the entire data into specified datatype\par
+
+\pard\widctlpar\sl240\slmult1\f0\fs24\par
+\par
+
+\pard 
+{\listtext\f0\u10625?\tab}\ls3\ilvl1\fi-360\li1440\sl240\slmult1 genfromtext():\par
+
+\pard\widctlpar\sl240\slmult1\tab\tab\tab\b0 data = np.genfromtxt('titanic.csv', delimiter=',', names=True, \tab\tab\tab\tab dtype=None)\par
+\tab\tab\par
+\b\tab\tab\tab names==> Specifies it contains columns names\par
+\tab\tab\tab dtype==>None, it will be the default datatype\par
+\par
+\par
+Importing Data using Pandas:\par
+\par
+\b0\tab Two-dimensional labeled data structure(s)\par
+\tab Columns of potentially different types\par
+\tab Manipulate, slice, reshape, groupby, join, merge\par
+\tab Perform statistics\par
+\tab Work with time series data \par
+\ul\b Manipulating pandas DataFrames\ulnone\b0\par
+\tab\f3\u9679?\f0  Exploratory data analysis\par
+\tab  Data wrangling\par
+\tab  Data preprocessing\par
+\tab  Building models\par
+\tab Visualization\par
+\tab Standard and best practice to use pandas\par
+\par
+\ul\b To read CSV file:\ulnone\par
+\tab\tab\b0 import pandas as pd\par
+\tab\tab\b df=pd.read_csv('file\b0 _\b name',nrows=\b0 100\b )\par
+\b0\par
+\tab * To convert dataframe values into numpy values\par
+\b\tab\tab np_array=df.values\par
+\tab\par
+\tab To ignore the comments and missing values in datasets:\par
+
+\pard\widctlpar\ri-810\sl240\slmult1\b0\tab data = pd.read_csv(\b file\b0 , \b sep\b0 ="\\t", \b comment\b0 ="#", \b na_values\b0 ="NA/NaN")\par
+\par
+\tab\tab *sep==> delimiters\par
+\tab\tab *comments==> sepcifies the comments\par
+\tab\tab *na_values==>String which specifies missing values can be anything like \tab\tab\tab\b nothing\b0  ,Na,NaN, according to the specified in file\b\par
+
+\pard\widctlpar\sl240\slmult1\b0\par
+\ul\b Other File type:\par
+\par
+\ulnone\tab *Excel Sheets\par
+\tab *Matlob files\par
+\tab *DataBases\par
+\tab *SAS files\par
+\tab *Stat files\par
+\tab **HDF5 files==> More frequent files to store large dataset\par
+\par
+\ul Pickle:\par
+\ulnone\b0\tab ->file type Native to python\par
+\tab -> Helps to store the datatypes which can't store in flat files and other files like \tab\tab\tab      dictonories and list\par
+\tab ->\b  pickle \b0 Serilizes the Object/Datatype to store into files\par
+\tab\tab Extn is  \tab "\b . pkl\b0 "\par
+\tab\par
+\b\tab Eg: To write\b0\par
+\tab\tab import pickle\par
+\tab\tab file=open('fileName','wb')\par
+\tab\tab pickle.dump("content",file)\par
+\tab\par
+\tab        \b To Read:\par
+\b0\tab\tab file=open('fileName','rb')\par
+\tab\tab pickle.load(file)\par
+\par
+\par
+\par
+\par
+\par
+\ul\b SAS and Stata files:\ulnone\par
+\tab\b0 SAS: Statistical Analysis System\par
+\f4\tab\f5 Stata: \ldblquote Statistics\rdblquote  + \ldblquote data\rdblquote\f0\par
+\par
+\b SAS: \b0 Is used for business analytics and biostatics.\par
+\b\tab Used for:\b0\par
+\f4\tab\tab\f3\u9679? Advanced analytics\par
+\f4\tab\tab\f3\u9679? Multivariate analysis\par
+\f4\tab\tab\f3\u9679? Business intelligence\par
+\f4\tab\tab\f3\u9679? Data management\par
+\f4\tab\tab\f3\u9679? Predictive analytics\par
+\f4\tab\tab\f3\u9679? Standard for computational analysis\par
+\b\f0\par
+Importing Package:\b0\par
+\tab import pandas as pd\par
+\b\tab from sas7bdat import SAS7BDAT\par
+\b0\tab with open('file_name.sas7dbat') as file:\par
+\tab\tab sas_data=file.to_data_frame()\par
+\par
+\par
+\b Stata: \b0 Is used for academic social science research \par
+\b\par
+Importing Package:\b0\par
+\tab import \tab pandas as pd\par
+\tab data=pd.read_stata('file_name.dta')\par
+\par
+\par
+\par
+\ul\b HDF5 Files:\ulnone\par
+\tab\tab * hdf5==> Hierarchical Data Format version 5\par
+\tab\tab * Hdf5\b0  is used to store very large quantities of numerical data i.e in hundreds of \tab\tab\tab GB or TB\par
+\tab\par
+\b\tab To import HDF5 files:\par
+\tab\par
+\tab import h5py\par
+\tab data=h5py.File( 'file_name.hdf5','r')\par
+\tab\par
+\tab Note:\b0  Hdf5 data contains in a hierarchical ,means in the form of groups(nothing like directories)\par
+\tab\tab To get groups:\par
+\tab\tab\par
+\tab\tab for  i in data.keys():\par
+\tab\tab\tab print(i)\par
+\b\par
+\ul Matlab Files:\par
+\par
+\ulnone\b0\tab *matlab files contains the variables and values \par
+\tab *Extn: \b .mat\par
+\tab\tab scipy.io.loadmat()==>To read\par
+\tab\tab scipy.io.loadmat()==>To save\par
+\tab\par
+\tab importing the matlab files:\par
+\tab\tab import scipy.io\par
+\tab\tab data=scipy.io.loadmat('file_name.mat')\par
+\tab\tab\tab\b0\tab\b\par
+\tab\b0\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\b\tab\b0\par
+\par
+\f2\fs22\tab\tab\tab\b\par
+
+\pard\widctlpar\fi720\li1440\sl240\slmult1\par
+
+\pard\widctlpar\li720\sl240\slmult1\tab\par
+\tab\tab\f0\fs24\par
+
+\pard\widctlpar\sl240\slmult1\b0\par
+
+\pard\sl240\slmult1\f6\fs22\lang9\par
+}
+ 
