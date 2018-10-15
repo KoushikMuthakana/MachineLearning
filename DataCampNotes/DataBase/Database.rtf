@@ -1,0 +1,243 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\sa200\sl240\slmult1\qc\b\f0\fs28\lang9 Introduction to the databases\par
+
+\pard\sa200\sl240\slmult1\b0\fs22 *Python has many libraries to conenct to the database.\par
+*We use \b SqlAlchemy package \b0 to connect and fetch the database data\par
+\par
+\b Steps: \par
+\b0 1.Import library\tab\tab\tab\tab\b from sqlalchemy import create_engine\par
+\b0 2.Create engine obj\tab\tab\tab\b engine=create_engine('sqlite:db_name.sqlite')\par
+\b0 3. establish connection\tab\tab\tab\b con=engine.connect()\par
+4.\b0 fetch data through query\tab\tab\b res=con.execute('select * from table_name')\par
+**\b0 To get tables use\b     engine.table_names() method\par
+\b0 engine: common interface to the database from SQLAlchemy\par
+\par
+\b  To get data through python coding:\par
+follow steps 1,2,3\par
+step4: import necessary library \tab\tab from sqlalchemy import Table,MetaData\par
+step5: create MEtaData obj\tab\tab\tab metadata=MetaData()\par
+step6: fetch table data\tab\tab\tab\tab\tab\tab out=Table('Table_name',metadata,autoload=True,autoload_with=engine)\par
+step7: print table info:\tab\tab\tab\tab repr(out)\par
+\par
+\par
+\par
+\par
+\par
+'''\par
+Introd\par
+\par
+'''\par
+\par
+Where clauses:\par
+\b0 -> Restrict data returned by a query based on boolean conditions\par
+-> Compare a column against a value or another column\par
+-> often used comparisons: '==', '<=', '>=', or '!='\par
+\b code:\b0\par
+from sqlalchemy import create_engine, Table,MetaData,select\par
+\b engine\b0 =create_engine('sqlite:///name.sqlite')\par
+tables=engine.table_names()\par
+\b con\b0 =engine.conenct()\b\par
+metadata\b0 =MetaData()\par
+\b table\b0 =Table('table_name',\b metadata\b0 ,autoload=True,autoload_with=\b engine\b0 )\par
+\b stmt\b0 =select([\b table\b0 ])\par
+data=\b con\b0 .execute(\b stmt\b0 .where(\b table\b0 .columns.\b column_name=='name_to_compare'\b0 ))\par
+\par
+\b Expressions\b0\par
+\lang1033\tab\lang9  Provide more complex conditions than simple operators\par
+\lang1033\tab\lang9  Eg. in_(), like(), between(),startswith()\par
+\lang1033\tab\lang9  Many more in documentation\par
+\lang1033\tab\lang9  Available as method on a Column\par
+\b Eg:Code\par
+stmt\b0 =select([\b table\b0 ])\par
+data=\b con\b0 .execute(\b stmt\b0 .where(\b table\b0 .columns.\b column_name.startswith('\b0 new\b ')\b0 ))\par
+{\b{\field{\*\fldinst{HYPERLINK https://docs.sqlalchemy.org/en/latest/core/sqlelement.html#module-sqlalchemy.sql.expression }}{\fldrslt{https://docs.sqlalchemy.org/en/latest/core/sqlelement.html#module-sqlalchemy.sql.expression\ul0\cf0}}}}\b\f0\fs22\par
+\par
+Conjunctions\b0\par
+\tab  Allow us to have multiple criteria in a where clause\par
+\lang1033\tab\lang9  Eg. and_(), not_(), or_()\par
+\b Eg;code\par
+from sqlalchemy import Table,MetaData,create_engine,select,or_\par
+stmt=select([table_obj])\par
+con.execute(stmt.where(\par
+        or_(table_obj.columns.column_name=='name',\par
+\tab table_obj.columns.column_name=='name1',\par
+\tab )\par
+))\par
+\par
+\ul order_by() clause:\par
+\par
+\ulnone\b0 query=select( [ census.columns.name,cencus.columns.age ]  )\par
+con.execute( \b query.order_by(census.columns.name)\b0  ).fetchall()\par
+\ul\b order_by() with multple columns:\ulnone\b0\par
+\tab * Just separate multiple columns with a comma\par
+\tab  *Orders completely by the first column\par
+\lang1033\tab *\lang9  Then if there are duplicates in the first column,orders by the second column ,repeat \tab until all columns are ordered\par
+\par
+\b Ordering in Descending Order by a Single Column:\par
+\b0 Pass desc() (for "descending") inside an .order_by() with the name of the column you want to sort by.\par
+ For instance, \b stmt.order_by(desc(table.columns.column_name)) \par
+\par
+\par
+Aggregate functions:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\b0 E.g. Count, Sum\par
+{\pntext\f1\'B7\tab}from sqlalchemy import func\par
+{\pntext\f1\'B7\tab} More efficient than processing in Python\par
+{\pntext\f1\'B7\tab} Aggregate data\par
+
+\pard\sa200\sl240\slmult1\b Code:\par
+\tab from sqlalchemy import func\par
+\tab\b0 qr=select([\b func.sum(census.columns.population) \b0 ])\par
+\tab res=con.execute(qr).scalar()\par
+\tab\par
+\b Group_by():\par
+\tab Group by is used to group the results based on related values.\par
+Eg:\par
+\b0\tab qr=select(  [ cencus.columns.name,cencus.columns.age,func.sum(census.columns.population  ]   )\par
+\tab stmt=qr.\b group\b0 _by(cencus.columns.name)\par
+\tab res=con.execute(stmt).fetchall()\par
+Note: the results will be the sum of population bases on name,suppose ' ABC ' has multiple rows then it returns the sum of population all 'ABC'\par
+\par
+\b Multple columns group by also possible similar to the order_by()\par
+\b0\tab stmt = select([census.columns.sex,census.columns.age,\par
+\tab\tab\tab func.sum(census.columns.pop2008)])\par
+\tab stmt = stmt.group_by(census.columns.sex, census.columns.age)\par
+\tab results = connection.execute(stmt).fetchall() \tab\par
+\par
+\b Handling ResultSets from Functions:\par
+\b0 when we use functions, it will create a column with defaul name. So we will use \b label()\par
+\b0 to create with custom name\par
+Eg:\par
+\tab stmt=select( [ cencus.columns.name,census.columns.sex,\par
+\tab\tab\tab func.sum(census.columns.population)).\b lable('sum_of_popupation')  \b0 ]  )\par
+\tab stmt=stmt.gruop_by(census.columns.sex \par
+\tab res=con.execute(stmt)\par
+\tab res[0].keys()==>   name,sex, '\b sum_of_popupation\b0 '\par
+\par
+\b Note: if you only want to count the distinct values of pop2008, you can use the .distinct() method\par
+\tab select([func.count(census.columns.pop2008.distinct())])\par
+\par
+\ul Calculating Values in a Query:\par
+\ulnone\b0 math operations like add,diff,mul,div,mod works differently on diff datatypes\par
+cal diff:\par
+\tab stmt=select(    [census.columns.name,   (census.columns.pop2016 \b -\b0\tab\tab\tab\tab\tab\tab\tab census.columns.pop2012 ).label('diff_btw_2016_2012')     ] )\par
+\tab res=con.execute(stmt.\b limit\b0 (5))\par
+\par
+\b Case Statement:\b0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1  Used to treat data differently based on a condition\par
+{\pntext\f1\'B7\tab} Accepts a list of conditions to match and a column  to return if the condition matches\par
+{\pntext\f1\'B7\tab} The list of conditions ends with an else clause to determine what to do when a record doesn\rquote t match any prior conditions\par
+
+\pard\sa200\sl240\slmult1\par
+Eg:\par
+stmt=select( [ census.columns.name,case([\par
+\tab\tab\tab\tab\tab (\par
+\tab\tab\tab\tab\tab census.columns.name=='india',\par
+\tab\tab\tab\tab\tab func.sum(census.columns.age)\par
+\tab\tab\tab\tab\tab )  \par
+\tab\tab\tab\tab\tab ] ,else_ 0)   ]  )\par
+res=con.execute(stmt.\b limit\b0 (5))\par
+\par
+\b Cast Statement\b0\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1 Converts data to another type\par
+{\pntext\f1\'B7\tab}Useful for converting\par
+{\pntext\f1\'B7\tab} integers to floats for division\par
+{\pntext\f1\'B7\tab} strings to dates and times\par
+{\pntext\f1\'B7\tab} Accepts a column or expression and the target Type\par
+
+\pard\sa200\sl240\slmult1 Eg:\par
+In [1]: from sqlalchemy import case, cast, Float\par
+In [2]: stmt = select([\par
+ ...: (func.sum(\par
+ ...: case([\par
+ ...: (census.columns.state == 'New York',\par
+ ...: census.columns.pop2008)\par
+ ...: ], else_=0)) /\par
+ ...: cast(func.sum(census.columns.pop2008),\par
+ ...: Float) * 100).label('ny_percent')])\par
+In [3]: results = connection.execute(stmt).fetchall()\par
+In [4]: print(results)\par
+Out[4]: [(Decimal('6.4267619765'),)]\par
+\par
+\b Note: How to conenct to sql database\par
+engine = create_engine('mysql+pymysql://student:datacamp@courses.csrrinzqubik.us-east-1.rds.amazonaws.com:3306/census')\par
+student:datacamp==>>Username:password\par
+courses.csrrinzqubik.us-east-1.rds.amazonaws.com:3306==>>host:port\par
+census==>>databasename\b0\par
+\par
+
+\pard\sa200\sl240\slmult1\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\b\par
+\b0\par
+\par
+\par
+\b\par
+\fs28\par
+}
+ 
