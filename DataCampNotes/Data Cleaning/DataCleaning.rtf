@@ -21,7 +21,7 @@ Step 1: Undersatnding the Data\par
 \tab ->To do : df.info()\par
 \tab\tab * Find the datatypes of each column ,are they in correct data type or not\par
 \tab ->Find the unique values in the columns \par
-\tab\tab *To do : df['column_name'].value_counts(\b dropna\b0 =False )\par
+\tab\tab *To do : df['column_name'].\b value_counts\b0 (\b dropna\b0 =False )\par
 \tab\tab *\b Dropna\b0 => False, returns the missing values\par
 \tab -> Df.describe()\par
 \tab\tab * Numeric info of all numeric columns\par
@@ -76,14 +76,14 @@ concatenation Notes\par
 \par
 '''\par
 \par
-Merging the data:\par
+\ul Merging the data:\ulnone\par
 \b0\tab *concatenation is not only the way to combine data, there will be some situations where concatenation can't perform.\par
 \b Eg: \tab Dataframe1 \tab\tab\tab\tab\tab\tab DataFrame2\par
 \tab EmpName\tab loc\tab Sal\tab\tab\tab\tab Name\tab\tab Date of Joining\par
-\b0\tab koushik\tab\tab Bnglr\tab 20\tab\tab\tab\tab Rajesh\tab\tab 08/10/2016\b\par
+\b0\tab koushik\tab Bnglr\tab 20\tab\tab\tab\tab Rajesh\tab\tab 08/10/2016\b\par
 \b0\tab Rahul\tab\tab Bnglr\tab 12\tab\tab\tab\tab Raj\tab\tab 08/10/2017\b\par
 \b0\tab Raj\tab\tab Bnglr\tab 9\tab\tab\tab\tab Rahul\tab\tab 08/10/2016\par
-In the above data frames, concatenate doen't work either row or column wise because they are in same order\par
+In the above data frames, concatenate doen't work either row or column wise because they are not in same order\par
 So merging has to perform, to combine data.\par
 ==> Merging is perform on the common column in the dataframes, in above DF, \b EmpName \b0 and \b Name\b0  are the common columns.\par
 *pandas has\b  merge() function to perform merging \par
@@ -160,7 +160,7 @@ pd.to_numeric() \b0 function to convert a column into a numeric data type. If th
 \ul Regular Expression:\par
 \ulnone\b0\f2\u9679?\f0  A formal way of specifying a pa!ern\par
 \f2\u9679?\f0  Sequence of characters\par
-\f2\u9679?\f0  Pa!ern matching \par
+\f2\u9679?\f0  Pattern matching \par
 \par
 Using regular expressions\par
 \f2\u9679?\f0  Compile the pa!ern\par
@@ -177,7 +177,7 @@ re.findall( 'pattern Eg: \\d',' String to be compared Eg  Hello 2 and 3'  ) -ret
 \par
 Duplicates and Missing values:\par
 \b0 Duplicates: drop_duplicates() is used to drop the duplicates.\par
-\b Pandas:\par
+\ul\b\fs28 Pandas:\ulnone\fs22\par
 \tab df_set.drop_duplicates()\par
 Missing Values:\par
 \b0 Missing values can be handled in many ways.\par

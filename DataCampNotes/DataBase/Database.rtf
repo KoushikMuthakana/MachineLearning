@@ -167,7 +167,107 @@ Out[4]: [(Decimal('6.4267619765'),)]\par
 engine = create_engine('mysql+pymysql://student:datacamp@courses.csrrinzqubik.us-east-1.rds.amazonaws.com:3306/census')\par
 student:datacamp==>>Username:password\par
 courses.csrrinzqubik.us-east-1.rds.amazonaws.com:3306==>>host:port\par
-census==>>databasename\b0\par
+census==>>databasename\par
+\par
+\ul Joins:\par
+\ulnone They ara 4 types of joins:\par
+\tab 1. Inner Join\par
+\tab 2. left join\par
+\tab 3.right join\par
+\tab 4.full outer join\par
+\par
+1.Inner Join:  \b0 Returns the common rows in two tables.\par
+\tab Eg: Table 1\tab\tab\tab\tab\tab\tab Table2\par
+\tab\b country \tab Id\tab\tab\tab\tab\tab\tab cty_id\tab\tab state\par
+\b0\tab India\tab\tab 1\tab\tab\tab\tab\tab\tab 1\tab\tab AP\par
+\tab USA\tab\tab 2\tab\tab\tab\tab\tab\tab 2\tab\tab NY\par
+\tab Russia\tab\tab 3\tab\tab\tab\tab\tab\tab 1\tab\tab Bglr\par
+\tab\tab\tab\tab\tab\tab\tab\tab\tab --\tab\tab Delhi\par
+Inner join:\tab select * from Table1 \b INNER JOIN \b0 Table2 on id==cty_id\par
+
+\pard\sa200\sl240\slmult1\tab output: \par
+\b\tab country \tab Id\tab cty_id\tab\tab state\b0\par
+\tab India\tab\tab 1\tab 1\tab\tab AP\par
+\tab USA\tab\tab 2\tab 2\tab\tab NY\par
+\tab India\tab\tab 1\tab 1\tab\tab Bglr\par
+\b\par
+2.left Join: \b0 Return all left table rows even if they don't have in right table\b\par
+\b0 select * from Table1 \b left JOIN \b0 Table2 on id==cty_id\par
+\b\tab country \tab Id\tab cty_id\tab\tab state\b0\par
+\tab India\tab\tab 1\tab 1\tab\tab AP\par
+\tab USA\tab\tab 2\tab 2\tab\tab NY\par
+\tab India\tab\tab 1\tab 1\tab\tab Bglr\par
+\tab Russia\tab\tab 3\tab\b Null\tab\tab Null\par
+3.Right Join: \b0 Return all right table rows even if they don't have in left table\b\par
+\b0 select * from Table1 \b right JOIN \b0 Table2 on id==cty_id\par
+\b\tab country \tab Id\tab cty_id\tab\tab state\b0\par
+\tab India\tab\tab 1\tab 1\tab\tab AP\par
+\tab USA\tab\tab 2\tab 2\tab\tab NY\par
+\tab India\tab\tab 1\tab 1\tab\tab Bglr\par
+\tab\b NULL\tab\tab Null\tab NULL\b0\tab\tab Delhi\par
+4.Full outer join: Returns all rows in the both tables\par
+select * from Table1 \b FULL OUTER  JOIN \b0 Table2 on id==cty_id\par
+\par
+\tab\b country \tab Id\tab cty_id\tab\tab state\par
+\b0\tab India\tab\tab 1\tab 1\tab\tab AP\par
+\tab USA\tab\tab 2\tab 2\tab\tab NY\par
+\tab Russia\tab\tab 3\tab Null\tab\tab Null\par
+\tab India\tab\tab 1\tab 1\tab\tab Bglr\par
+\tab NULL\tab\tab NULL\tab Null\tab\tab Delhi\par
+\par
+\b SQLALCHEMY JOINS:\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1\b0 Accepts a Table and an optional expression that explains how the two tables are related \par
+{\pntext\f1\'B7\tab}The expression is not needed if the relationship is predefined and available via reflection\par
+{\pntext\f1\'B7\tab}Comes immediately a"er the select() clause and prior to any where(), order_by or group_by() clauses\par
+
+\pard\sa200\sl240\slmult1\b Select_from\b0  ():\par
+
+\pard{\pntext\f1\'B7\tab}{\*\pn\pnlvlblt\pnf1\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl240\slmult1 Used to replace the default, derived FROM clause with a join\par
+{\pntext\f1\'B7\tab} Wraps the join() clause\par
+
+\pard\sa200\sl240\slmult1\par
+\b Eg:Join With predefined relationship i.e defined common columns already\b0\par
+stmt=select(func.sum(census.columns.pop2000))\par
+stmt=stmt.select_from(census_table.join(state_fact_table))\par
+stmt=stmt.group_by(census.columns.state)\par
+res=con.execute(stmt)\par
+\par
+\b Eg:Join With out predefined relationship\par
+\b0 stmt=select(func.count( census.columns.pop20002 ))\par
+stmt=stmt.select_from(census_table.\b join\b0 ( state_fact_table, census_table.columns.name==sta te_fact+table.column.state))\par
+stmt=stmt.group_by(census.columns.state)\par
+res=con.execute(stmt)\par
+\par
+\b Self Join: Some table has self relationship with itself.\par
+Eg:\par
+EmpID\tab\tab Name\tab\tab Sal\tab\tab Manager_ID\par
+\b0 1\tab\tab Ram\tab\tab 123\tab\tab 2\par
+2\tab\tab Raj\tab\tab 234\tab\tab 6\par
+3\tab\tab Varun\tab\tab 123\tab\tab 2\par
+Here everyone is a employee,\par
+\par
+In sqlalchemy, \b alias() method\b0  is used to create unique names to refer\par
+Eg:\par
+\tab manager=employee_table.\b alias()\par
+\tab\b0 stmt = select(\par
+    [managers.columns.name.label('manager'),\par
+     emplyees.columns.name.label('employees')]\par
+)\par
+\tab stmt=select_from(employee.join(manager,manager.columns.id,emoplyee_table.columns.id) )\par
+\par
+\tab\par
+\par
+\par
+\par
+\par
+\par
+\par
+
+\pard\sa200\sl240\slmult1\tab\tab\tab\tab\tab\tab\tab\tab\tab\par
+\tab\par
+\par
+\par
 \par
 
 \pard\sa200\sl240\slmult1\par
