@@ -1,5 +1,5 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil\fcharset2 Symbol;}}
-{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
 \pard\sa200\sl240\slmult1\qc\ul\b\f0\fs28\lang9 Cleaning Data\par
 
 \pard\sa200\sl240\slmult1\qj\ulnone\b0\fs22 *Raw Data is not always clean data to perform data analysis.\par
@@ -66,8 +66,93 @@ Tidy Data: (arranged neatly and in order)\par
 \b0\tab\tab * Each variable that you've measured be in exactly one column \par
 \tab\tab * Each different observation should be in a different row\par
 \b\tab\tab * Each type of observational unit forms a table\par
+** pandas.melt(): \b0 is used to convert the columns values into variables, as tidy data should contains only column variables \par
+\b  Eg: Untidy data\par
+\b0  \tab\b Name\tab\tab treat1\tab\tab treat2\tab\b0\tab\par
+\tab sns\tab\tab --\tab\tab 21\tab\tab\par
+\tab ke\tab\tab 34\tab\tab 54\par
+\tab ft\tab\tab 43\tab\tab 32\par
+\b Tidy Data\b0\par
+\b\tab Name\tab\tab Treatment\tab\tab T-values\tab\tab\par
+\b0\tab sns\tab\tab treat1\tab\tab\tab --\par
+\tab ke\tab\tab treat1\tab\tab\tab 34\par
+\tab ft\tab\tab treat2\tab\tab\tab 43\par
+\tab sns\tab\tab treat2\tab\tab\tab 21\par
+\tab ke\tab\tab treat2\tab\tab\tab 54\par
+\tab ft\tab\tab treat2\tab\tab\tab 32\par
+\tab\b\tab\b0\par
+Each column should contain the variables and each row should specify one abservation . This can be achived by using pandas method \b melt()\b0\par
+\b parameters: Frame='DataSet_Frame',id_vars='represent the columns of the data you do not want to melt'\par
+\tab\tab values_vars='On which columns melting should be done'\par
+\tab\tab var_name='Can change the variable names'\par
+\tab\tab value_name="Can chaneg the result"\par
 \par
+Pivot and pivot_table:\par
+\tab ->\b0 Pivot is opposite to the melt, means converting the rows into columns.\par
+\tab ->In some situations dataset is violating the tidy principles as each row is not specify one observation\par
+\b\tab dataset.pivot(): Is used to convert the rows into columns\par
+\tab parameters: \par
+\tab\tab Index='column to be \b0 Index \b ',\par
+\tab\tab columns='column data to be converted into seperate column '\par
+\tab\tab value='Values to be corressponding to the columns '\par
+Note: pivot can/t deal with the duplicate rows\b0\par
+So\par
+\b Pivot_table() is used to deal with the duplicates values\b0\par
+\b dataset.pivot_table(): Is used to convert the rows into columns\par
+\tab parameters: \par
+\tab\tab Index='column to be \b0 Index \b ',\par
+\tab\tab columns='column data to be converted into seperate column '\par
+\tab\tab value='Values to be corressponding to the columns ',\par
+\tab\tab aggfunc=np.mean\par
 \par
+\ul\par
+\par
+\ulnone\b0 -> Sometimes there will be a datasets which splits into dofferent datasets or files duw to large size or daily updating the data(stock dataset)\par
+-> Combining the data can be done done in many ways, column wise ,row wise...\par
+\b ROW wise:\par
+->Data is combine by row wise, it should have same columns size.\par
+Eg: Dataset 1\par
+ \tab\tab ID\tab Name\tab\tab Age\tab\tab\par
+\tab\tab 0\tab kkr\tab\tab 23\par
+\tab\tab 1\tab rre\tab\tab 34\par
+Dataset 2\tab\tab\par
+\tab\tab ID\tab Name\tab\tab Age\tab\tab\par
+\tab\tab 0\tab ERE\tab\tab 23\par
+\tab\tab 1\tab WER\tab\tab 34\par
+
+\pard\sa200\sl240\slmult1 RESULT:\par
+
+\pard\sa200\sl240\slmult1\qj\tab\tab  ID\tab Name\tab\tab Age\tab\tab\par
+\tab\tab 0\tab kkr\tab\tab 23\par
+\tab\tab 1\tab rre\tab\tab 34\par
+\tab\tab 0\tab ERE\tab\tab 23\par
+\tab\tab 1\tab WER\tab\tab 34\par
+
+\pard\sa200\sl240\slmult1 Note: \b0 Index are default , i.e 0 1 0 1\par
+In pandas, concat() is used to row wise concatination.\par
+\b pandas.concat([dataframe1,dataframe2],ignore_index=True)\par
+\tab ignore_index=True, default is False--> \b0 It will ignore the dataset indexes, it will create a continous and unique indexes.\b\par
+
+\pard\sa200\sl240\slmult1\qj\par
+\par
+Column wise:\par
+\tab\b0 concatinatiing the columns of different datasets.\par
+\tab Should have same length of rows.\par
+\tab\b pandas.concat([df1,df2],axis=1,ignore_index=False)\par
+\b0\par
+\par
+\b Note:\par
+What if there are many data frames/data files, ?? \par
+\tab ->Loading each data file/dataset requires more time.\par
+\tab -> To Overcome the problem we use glob package.\par
+\par
+glob.glob()-> is used to fetch the similar files based on condition.\par
+parameters: str: \par
+i.e \tab glob.glob( '*.csv')--> fetches all csv files\par
+\tab glob.glob('part_?.csv')-> fetches all cvs files with single character at the end either number or alphabet\par
+Note:\tab ? represents any one character\b0\par
+\par
+\b\par
 \par
 '''\par
 \par
@@ -158,7 +243,7 @@ pd.to_numeric() \b0 function to convert a column into a numeric data type. If th
 \b Eg:  pd.to_numeric(df['age'],errors='coerce' )\par
 \par
 \ul Regular Expression:\par
-\ulnone\b0\f2\u9679?\f0  A formal way of specifying a pa!ern\par
+\ulnone\b0\f2\lang1033\u9679?\f0  A formal way of specifying a pa!ern\par
 \f2\u9679?\f0  Sequence of characters\par
 \f2\u9679?\f0  Pattern matching \par
 \par

@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
 {\colortbl ;\red0\green0\blue255;}
-{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
 \pard\sa200\sl240\slmult1\qc\b\f0\fs28\lang9 Introduction to the databases\par
 
 \pard\sa200\sl240\slmult1\b0\fs22 *Python has many libraries to conenct to the database.\par
@@ -21,15 +21,37 @@ step5: create MEtaData obj\tab\tab\tab metadata=MetaData()\par
 step6: fetch table data\tab\tab\tab\tab\tab\tab out=Table('Table_name',metadata,autoload=True,autoload_with=engine)\par
 step7: print table info:\tab\tab\tab\tab repr(out)\par
 \par
+
+\pard\sa200\sl276\slmult1 Autoloading Tables from a Database\b0\par
+SQLAlchemy can be used to automatically load tables from a database using something called \b reflection\b0 . \par
+\b Reflection \b0 is the process of reading the database and building the metadata based on that information.\par
+ It's the opposite of creating a Table by hand and is very useful for working with existing databases\par
 \par
+\b Alchemy Steps:\par
+step1:  import library\tab\tab\tab from alchemy import \tab\tab\tab\tab\tab\tab\tab\tab\tab\tab create_engine,Table,MetaData \par
 \par
+step2: create engine\tab\tab\tab engine=create_engine('sqlite:///abc.sqlite')\par
+step 3: create connection\tab\tab con=engine.connect()\par
+step4: Get tables\tab\tab\tab engine.table_names()\par
 \par
+step5: create metadata object\tab\tab metadata_obj=MetaData()\par
+step6: Get table details\tab\tab   tb_details=Table('Table_name',metadata_obj,\par
+\tab\tab\tab\tab\tab\tab\tab autoload=True,autoload_with=engine)\par
 \par
-'''\par
-Introd\par
-\par
-'''\par
-\par
+step6: SELECT query: \par
+\tab 'Two ways to execute queries'\par
+\tab\tab i.  query="Select * from table_name"\par
+\tab\tab\tab table_proxy=con.execute(query).fetchall()\par
+\tab\tab\tab\par
+\tab\tab ii. Using Alchemy methods\par
+\tab\tab\tab from sqlalchemy import select\par
+\tab\tab\tab table=Table('table_name',metadata,autoload=True,\par
+\tab\tab\tab\tab\tab autoload_with=engine)\par
+\tab\tab\tab query=select([table])\par
+\tab\tab\tab TABLE=con.execute(query).fetchall()\par
+\tab\tab\tab headers=Table.keys()\b0\par
+
+\pard\sa200\sl240\slmult1\b\par
 Where clauses:\par
 \b0 -> Restrict data returned by a query based on boolean conditions\par
 -> Compare a column against a value or another column\par
@@ -184,8 +206,7 @@ census==>>databasename\par
 \tab Russia\tab\tab 3\tab\tab\tab\tab\tab\tab 1\tab\tab Bglr\par
 \tab\tab\tab\tab\tab\tab\tab\tab\tab --\tab\tab Delhi\par
 Inner join:\tab select * from Table1 \b INNER JOIN \b0 Table2 on id==cty_id\par
-
-\pard\sa200\sl240\slmult1\tab output: \par
+\tab output: \par
 \b\tab country \tab Id\tab cty_id\tab\tab state\b0\par
 \tab India\tab\tab 1\tab 1\tab\tab AP\par
 \tab USA\tab\tab 2\tab 2\tab\tab NY\par
@@ -263,14 +284,12 @@ Eg:\par
 \par
 \par
 \par
-
-\pard\sa200\sl240\slmult1\tab\tab\tab\tab\tab\tab\tab\tab\tab\par
+\tab\tab\tab\tab\tab\tab\tab\tab\tab\par
 \tab\par
 \par
 \par
 \par
-
-\pard\sa200\sl240\slmult1\par
+\par
 \par
 \par
 \par
