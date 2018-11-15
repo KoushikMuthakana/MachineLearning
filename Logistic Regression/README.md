@@ -1,7 +1,8 @@
 # Logistic Regression
 
 •	The Logistic regression shows the relationship of discrete output (Dependent variable) with the one or more independent variables.
-•	Uses the Sigmoid Function or Logit function
+
+            Uses the Sigmoid Function /Logit function
             
                           	0<= hθ(x) <=1
 
