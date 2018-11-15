@@ -8,6 +8,7 @@
 Eg:
 
 To predict whether an email is spam (1) or (0)
+
 Whether the tumor is malignant (1) or not (0)
 
 Types of Logistic Regression
