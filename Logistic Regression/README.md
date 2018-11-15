@@ -22,6 +22,6 @@ Types of Logistic Regression
 
           Three or more categories without ordering. Example: Predicting which food is preferred more (Veg, Non-Veg, Vegan)
 
-    3. Ord inal Logistic Regression
+    3. Ordinal Logistic Regression
 
           Three or more categories with ordering. Example: Movie rating from 1 to 5
